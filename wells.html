@@ -1,0 +1,21 @@
+{%extends "layout.html"%}
+{%block content%}
+<div class="wells">
+    <h1>Production forecast</h1>
+    <h3>Please upload your CSV file. The well tags should be in a column named <em>well</em> or
+        <em>Well</em>
+    </h3>
+    <form action="{{url_for('success_table')}}" method="POST" enctype="multipart/form-data">
+        <input type="file" accept=".csv" name="file" />
+        <button type="submit" onclick="Display ('submitted')"> Submit </button>
+    </form>
+    <form action="{{url_for('success_table2')}}" method="POST" enctype="multipart/form-data">
+        <input type="file" accept=".csv" name="file" />
+        <button type="submit" onclick="Display ('submitted')"> Results </button>
+    </form>
+    <div class="output">
+        {{text|safe}}
+    </div>
+
+
+    {%endblock%}
